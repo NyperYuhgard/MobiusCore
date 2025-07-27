@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introducción al 68k ASM - MobiusCore</title>
+  <style>
+    body {
+      background-color: #0c0c1c;
+      color: #00ffee;
+      font-family: monospace;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #00ffff;
+    }
+    a {
+      color: #00bbff;
+    }
+    code {
+      background-color: #001122;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #00ff99;
+    }
+    pre {
+      background-color: #001122;
+      padding: 1rem;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    hr {
+      margin: 2rem 0;
+      border: 1px solid #003344;
+    }
+  </style>
+</head>
+<body>
+  <h1>📘 Introducción al 68k ASM (Assembly 68000)</h1>
+  <p><strong>Por: MobiusCore</strong><br>
+  Guía completa para comenzar en el lenguaje ensamblador del Motorola 68000, base de la SEGA Mega Drive y otros sistemas clásicos.</p>
+
+  <h2>🧠 ¿Qué es el 68k?</h2>
+  <p>El Motorola 68000 (68k) es un procesador de 16/32 bits usado en consolas como:</p>
+  <ul>
+    <li>Sega Mega Drive / Genesis</li>
+    <li>Sega CD</li>
+  </ul>
+  <p>El código del juego se ejecuta directamente en lenguaje ensamblador 68k, por lo que aprenderlo es esencial para el hacking retro.</p>
+
+  <h2>🧰 Herramientas necesarias</h2>
+  <ul>
+    <li><code>asm68k</code> - Ensamblador clásico usado por SEGA</li>
+    <li><code>vasm</code>, <code>as</code> - Ensambladores modernos alternativos (No se cubrira por el momento)</li>
+    <li><code>IDA Pro</code>, <code>Ghidra</code> - Ingeniería inversa (Solo si buscas decompilar juegos existentes)</li>
+  </ul>
+
+  <h2>⚙️ Estructura básica</h2>
+  <pre><code>main:
+  move.w  #$1234, D0    ; Mueve 1234 a D0
+  add.w   D0, D1        ; Suma D0 a D1
+  rts                   ; Retorna</code></pre>
+
+  <h2>📦 Registros clave</h2>
+  <ul>
+    <li><strong>D0-D7</strong>: registros de datos</li>
+    <li><strong>A0-A6</strong>: registros de direcciones</li>
+    <li><strong>SP (A7)</strong>: pila</li>
+    <li><strong>PC</strong>: contador de programa</li>
+    <li><strong>SR</strong>: registro de estado</li>
+  </ul>
+
+  <h2>🧩 Instrucciones comunes</h2>
+  <table>
+    <tr><th>Instrucción</th><th>Descripción</th><th>Ejemplo</th></tr>
+    <tr><td><code>MOVE</code></td><td>Mueve datos</td><td><code>move.w D0, D1</code></td></tr>
+    <tr><td><code>ADD / SUB</code></td><td>Suma o resta</td><td><code>add.w #1, D0</code></td></tr>
+    <tr><td><code>CMP</code></td><td>Compara valores</td><td><code>cmp.b #$20, D0</code></td></tr>
+    <tr><td><code>BNE / BEQ</code></td><td>Salta si no es / es igual</td><td><code>bne .loop</code></td></tr>
+    <tr><td><code>JSR / RTS</code></td><td>Salto a subrutina / retorno</td><td><code>jsr Func</code>, <code>rts</code></td></tr>
+  </table>
+
+  <h2>🧠 Direccionamiento</h2>
+  <ul>
+    <li><code>#valor</code> - inmediato</li>
+    <li><code>(A0)</code> - indirecto</li>
+    <li><code>(A0)+</code> - indirecto con post-incremento</li>
+    <li><code>-2(A1,D0.W)</code> - indexado</li>
+  </ul>
+
+  <h2>🔍 Depuración en emulador</h2>
+  <p>Emuladores como <strong>BlastEm</strong> o <strong>Gens KMod</strong> permiten pausar el juego, observar los registros, usar breakpoints y ver memoria RAM. Usa el log de trazas para seguir la ejecución paso a paso.</p>
+
+  <h2>🔄 Compilación de código</h2>
+  <p>Usa <code>asm68k</code> para compilar tu código ASM:</p>
+  <pre><code>asm68k /p /o main.asm,main.bin</code></pre>
+  <p>Luego inyecta <code>main.bin</code> en tu disassembly de Sonic o ROM hack.</p>
+
+  <h2>🧠 Recursos adicionales</h2>
+  <ul>
+    <li><a href="https://info.sonicretro.org/">Sonic Retro</a></li>
+    <li><a href="https://www.romhacking.net/">ROM Hacking Net</a></li>
+    <li><a href="https://github.com/lab313ru/ghidra_sega_ldr">Ghidra Sega Genesis Loader</a></li>
+    <li><a href="https://github.com/lab313ru/smd_ida_tools2">IDA Pro Sega Genesis Loader</a></li>
+  </ul>
+
+  <hr>
+  <p><em>MobiusCore - Comunidad de hacking retro basada en Sonic y SEGA.</em></p>
+  <div class="back">
+  <a href="../menu.html">← Volver al menu</a>
+  </div>
+</body>
+</html>

@@ -1,34 +1,67 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MobiusCore</title>
   <style>
     body {
-      background-color: #101820;
+      background-color: #0c0c1c;
       color: #00ffee;
       font-family: monospace;
+      margin: 0;
+      padding: 2rem;
+    }
+    header {
       text-align: center;
-      padding: 3rem;
+      margin-bottom: 2rem;
     }
     h1 {
-      font-size: 3em;
+      font-size: 3rem;
       color: #00ffff;
-      text-shadow: 2px 2px 0 #0066aa;
+      text-shadow: 1px 1px 0 #0066aa;
     }
-    p {
-      font-size: 1.2em;
+    nav {
+      margin: 2rem 0;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
     }
-    .coming-soon {
-      font-style: italic;
-      color: #aaa;
+    nav a {
+      background: #003344;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #00ffee;
+      transition: background 0.2s;
+    }
+    nav a:hover {
+      background: #005566;
+    }
+    .footer {
+      margin-top: 4rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #888;
     }
   </style>
 </head>
 <body>
-  <h1>MobiusCore</h1>
-  <p>Bienvenida a la comunidad de hacking retro dedicada a Sonic y SEGA.</p>
-  <p class="coming-soon">🚧 Sitio en construcción 🚧</p>
-  <p><a href="https://github.com/TU_USUARIO/mobiuscore">Ver en GitHub</a></p>
+  <header>
+    <h1>MobiusCore</h1>
+    <p>Comunidad de hacking retro enfocada en Sonic y SEGA.</p>
+  </header>
+
+  <nav>
+    <a href="https://info.sonicretro.org/Category:Hacks">🔧 Hacks</a>
+    <a href="tutorials/menu.html">📘 Guias</a>
+    <a href="https://info.sonicretro.org/Category:Programs">🛠️ Herramientas</a>
+    <a href="https://discord.gg/pV7ayKcm5V" target="_blank">💬 Discord</a>
+  </nav>
+
+  <div class="footer">
+    © 2025 MobiusCore. Sitio en construcción.
+  </div>
 </body>
 </html>
