@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Referencia ASM → Hex 68000 - MobiusCore</title>
+  <style>
+    body { background-color: #0c0c1c; color: #00ffee; font-family: monospace; padding: 2rem; line-height: 1.6; }
+    h1, h2, h3 { color: #00ffff; }
+    a { color: #00bbff; }
+    code { background-color: #001122; padding: 2px 6px; border-radius: 4px; color: #00ff99; }
+    pre { background-color: #001122; padding: 1rem; border-radius: 6px; overflow-x: auto; }
+    hr { margin: 2rem 0; border: 1px solid #003344; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    table th, table td { border: 1px solid #003344; padding: 8px; text-align: left; }
+    table th { background-color: #001122; color: #00ffff; }
+  </style>
+</head>
+<body>
+  <h1>📘 Referencia ASM → Hex 68000</h1>
+  <p><strong>Por: MobiusCore</strong><br>
+  Tabla práctica de instrucciones ASM del Motorola 68000 con sus equivalentes en hexadecimal, enfocada en hacking de SEGA Mega Drive / Genesis.</p>
+
+  <h2>⚙️ Instrucciones esenciales</h2>
+  <table>
+    <tr><th>Instrucción</th><th>Hex (ejemplo/base)</th><th>Descripción</th><th>Ejemplo ASM</th></tr>
+    <tr><td><code>NOP</code></td><td><code>4E71</code></td><td>No hace nada, relleno útil.</td><td><code>nop</code></td></tr>
+    <tr><td><code>RTS</code></td><td><code>4E75</code></td><td>Retorna de subrutina.</td><td><code>rts</code></td></tr>
+    <tr><td><code>BRA</code></td><td><code>60xx / 60 00 yyyy</code></td><td>Salto relativo, offset signed.</td><td><code>bra .loop</code></td></tr>
+    <tr><td><code>BSR</code></td><td><code>61xx / 61 00 yyyy</code></td><td>Llamada a subrutina relativa.</td><td><code>bsr Func</code></td></tr>
+    <tr><td><code>JMP</code></td><td><code>4EF9 aabbcc</code></td><td>Salta a dirección absoluta (long).</td><td><code>jmp $123456</code></td></tr>
+    <tr><td><code>JSR</code></td><td><code>4EB9 aabbcc</code></td><td>Salta a subrutina absoluta (long).</td><td><code>jsr $123456</code></td></tr>
+    <tr><td><code>MOVEQ</code></td><td><code>70 rn imm8</code></td><td>Mueve inmediato 8-bit a Dn.</td><td><code>moveq #1,D0</code></td></tr>
+  </table>
+
+  <h2>➕ Operaciones aritméticas y lógicas</h2>
+  <table>
+    <tr><th>Instrucción</th><th>Hex (ejemplo/base)</th><th>Descripción</th><th>Ejemplo ASM</th></tr>
+    <tr><td><code>ADDQ</code></td><td><code>50xx</code></td><td>Suma inmediato rápido (1–8) a registro.</td><td><code>addq.w #1,D0</code></td></tr>
+    <tr><td><code>SUBQ</code></td><td><code>51xx</code></td><td>Resta inmediato rápido (1–8) a registro.</td><td><code>subq.w #1,D0</code></td></tr>
+    <tr><td><code>CMP</code></td><td><code>B4xx</code></td><td>Compara y actualiza flags.</td><td><code>cmp.w D0,D1</code></td></tr>
+    <tr><td><code>TST</code></td><td><code>4Axx</code></td><td>Testea valor y actualiza flags.</td><td><code>tst.b D0</code></td></tr>
+    <tr><td><code>ANDI</code></td><td><code>02xx imm</code></td><td>AND con inmediato.</td><td><code>andi.w #$FF,D0</code></td></tr>
+    <tr><td><code>ORI</code></td><td><code>00xx imm</code></td><td>OR con inmediato.</td><td><code>ori.w #$FF,D0</code></td></tr>
+  </table>
+
+  <h2>🧩 Ejemplo práctico</h2>
+  <pre><code>main:
+  move.w  #$1234, D0   ; Mueve 1234 a D0
+  addq.w  #1, D0       ; Incrementa D0
+  cmp.w   D0, D1       ; Compara D0 con D1
+  beq     .igual       ; Salta si son iguales
+  rts
+.igual:
+  moveq   #0, D0
+  rts</code></pre>
+
+  <h2>🧠 Recursos</h2>
+  <ul>
+    <li><a href="https://info.sonicretro.org/SCHG:68000_ASM-to-Hex_Code_Reference">Referencia Sonic Retro</a></li>
+    <li><a href="https://www.nxp.com/docs/en/reference-manual/M68000PRM.pdf">Motorola 68000 Programmer's Reference Manual</a></li>
+  </ul>
+
+  <hr>
+  <p><em>MobiusCore - Comunidad de hacking retro basada en Sonic y SEGA.</em></p>
+  <div class="back">
+  <a href="../menu.html">← Volver al menú</a>
+  </div>
+</body>
+</html>
