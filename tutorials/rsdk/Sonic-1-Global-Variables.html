@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Variables - Sonic 1 RSDK</title>
+  <style>
+    body { background-color: #0c0c1c; color: #00ffee; font-family: monospace; padding: 2rem; line-height: 1.6; }
+    h1, h2 { color: #00ffff; }
+    a { color: #00bbff; }
+    code { background-color: #001122; padding: 2px 6px; border-radius: 4px; color: #00ff99; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    table th, table td { border: 1px solid #003344; padding: 8px; text-align: left; }
+    table th { background-color: #001122; color: #00ffff; }
+  </style>
+</head>
+<body>
+  <h1>📗 Global Variables - Sonic 1 RSDK</h1>
+  <p><strong>Por: MobiusCore</strong><br>
+  Documentación de las variables globales utilizadas en Sonic 1 (RSDKv4). Estas variables son compartidas entre escenas y scripts.</p>
+
+  <h2>🌍 Lista de Global Variables (options.*)</h2>
+  <table>
+    <tr>
+      <th>Variable</th>
+      <th>Valores</th>
+      <th>Descripción</th>
+    </tr>
+    <tr>
+      <td><code>options.gameMode</code></td>
+      <td>
+        0 = Sin Guardar<br>
+        1 = Modo Normal (Defecto)<br>
+        2 = Time Attack
+      </td>
+      <td>Alterna entre los Game Modes del juego.</td>
+    </tr>
+    <tr>
+      <td><code>options.speedCap</code></td>
+      <td>
+        0 = Desactivado (Defecto)<br>
+        1 = Activado
+      </td>
+      <td>Habilita o deshabilita el Speed Cap que limita la velocidad del personaje en el suelo si se mantiene pulsada las flechas direccionales.</td>
+    </tr>
+    <tr>
+      <td><code>options.saveSlot</code></td>
+      <td>
+        0 = No Save Slot (Defecto, activa <code>options.gameMode</code> sin guardar)<br>
+        1 = Slot 1<br>
+        2 = Slot 2<br>
+        3 = Slot 3
+      </td>
+      <td>Determina el slot de guardado a usar.</td>
+    </tr>
+    <tr>
+      <td><code>options.stageSelectFlag</code></td>
+      <td>
+        0 = Desactivado (Defecto)<br>
+        1 = Activado
+      </td>
+      <td>Habilita el selector de niveles (solo accesible vía cheat code en modo sin guardar).</td>
+    </tr>
+    <tr>
+      <td><code>options.soundTestFlag</code></td>
+      <td>0 = (Defecto)</td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+    <tr>
+      <td><code>options.attractMode</code></td>
+      <td>0 = (Defecto)</td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+    <tr>
+      <td><code>options.demoNumber</code></td>
+      <td>0 = (Defecto)</td>
+      <td>Posiblemente determina qué demo reproducir. (<em>Documentación dudosa, sujeta a cambios.</em>)</td>
+    </tr>
+    <tr>
+      <td><code>options.touchControls</code></td>
+      <td>
+        0 = Desactivado (Defecto en Origins)<br>
+        1 = Activado (Defecto en Mobile)
+      </td>
+      <td>Muestra u oculta los controles táctiles. Usado solo en móviles, en desuso en Origins.</td>
+    </tr>
+    <tr>
+      <td><code>options.physicalControls</code></td>
+      <td>
+        0 = No hay control (Defecto)<br>
+        1 = Control conectado
+      </td>
+      <td>Indica la presencia de un control físico conectado.</td>
+    </tr>
+    <tr>
+      <td><code>options.airSpeedCap</code></td>
+      <td>
+        0 = Desactivado (Defecto)<br>
+        1 = Activado
+      </td>
+      <td>Habilita o deshabilita el Speed Cap aéreo que limita la velocidad en el aire si se mantiene pulsada las flechas direccionales.</td>
+    </tr>
+    <tr>
+      <td><code>options.region</code></td>
+      <td>0 = (Defecto)</td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+    <tr>
+      <td><code>options.spindash</code></td>
+      <td>
+        0 = Desactivado<br>
+        1 = Activado (Defecto)
+      </td>
+      <td>Habilita o deshabilita el SpinDash.</td>
+    </tr>
+    <tr>
+      <td><code>options.spikeBehavior</code></td>
+      <td>
+        0 = Desactivado (Defecto)<br>
+        1 = Activado (Actua como el bug de Sonic 1 Rev00)
+      </td>
+      <td>Habilita o deshabilita el comportamiento de los Spikes.</td>
+    </tr>
+
+    <tr>
+      <td><code>options.shieldType</code></td>
+      <td>
+        0 = Escudos de Sonic 1 (Defecto)<br>
+        1 = Escudos de Sonic 2<br>
+        2 = Escudos de Sonic 3 + Sonic 1<br>
+        3 = Escudos de Sonic 3 + Sonic 2
+      </td>
+      <td>Elije el tipo de distribucion de escudos.</td>
+    </tr>
+
+    <tr>
+      <td><code>options.superStates</code></td>
+      <td>
+        0 = (Defecto)
+      </td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+    <tr>
+      <td><code>options.competition</code></td>
+      <td>
+        0 = (Defecto)
+      </td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+  </table>
+    <h2>🌍 Lista de Global Variables (Otras)</h2>
+  <table> 
+    <tr>
+      <td><code>oscillation</code></td>
+      <td>
+        0 = (Defecto)
+      </td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+
+    <tr>
+      <td><code>ringTimer</code></td>
+      <td>
+        0 = (Defecto)
+      </td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+
+    <tr>
+      <td><code>ringFrame</code></td>
+      <td>
+        0 = (Defecto)
+      </td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+
+    <tr>
+      <td><code>ringPan</code></td>
+      <td>
+        0 = Canal Izquierdo (Defecto)<br>
+        1 = Canal Derecho
+      </td>
+      <td>Determina por cual canal de audio saldra el sonido de los Rings antes de cambiar al siguiente canal.</td>
+    </tr>
+
+    <tr>
+      <td><code>ringExtraLife</code></td>
+      <td>
+        0 = Valor por defecto pero es rapidamente reemplazado<br>
+        100 = 1era vida extra<br>
+        200 = 2da vida extra<br>
+        300 = 3era vida extra<br>
+        1000 = 4ta vida extra (Este ultimo valor teoricamente no se usa solo es para desactivar el incremento ya que el maximo de Rings en el contador es 999)
+      </td>
+      <td><em>Determina la cantidad necesaria de Rings para ganar una vida extra</em></td>
+    </tr>
+  </table>
+    <h2>🌍 Lista de Global Variables (player.*)</h2>
+  <table> 
+    <tr>
+      <td><code>player.score</code></td>
+      <td>
+        0 = (Defecto)
+      </td>
+      <td>Variable destinada a guardar la cantidad de puntos del jugador</td>
+    </tr>
+
+    <tr>
+      <td><code>player.scoreBonus</code></td>
+      <td>
+        50000 = (Defecto)
+      </td>
+      <td>Determina la cantidad necesaria de puntos necesarios para ganar una vida extra, a diferencia de ringExtraLife, este valor es estatico</td>
+    </tr>
+
+    <tr>
+      <td><code>player.lives</code></td>
+      <td>
+        3 = (Defecto)
+      </td>
+      <td>Variable destinada a guardar la cantidad de vidas del jugador</td>
+    </tr>
+
+    <tr>
+      <td><code>player.continues</code></td>
+      <td>
+        0 = (Defecto)
+      </td>
+      <td>Variable destinada a guardar la cantidad de continues del jugador</td>
+    </tr>
+
+    <tr>
+      <td><code>player.airTimer</code></td>
+      <td>
+        0 = (Defecto)
+      </td>
+      <td>Variable destinada a guardar la cantidad de aire bajo el agua del jugador (Documentacion dudosa)</td>
+    </tr>
+
+    <tr>
+      <td><code>player.rcollisionFlag</code></td>
+      <td>
+        0 = (Defecto)
+      </td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+
+    <tr>
+      <td><code>player.waterStream</code></td>
+      <td>
+        0 = (Defecto)
+      </td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+  </table>
+    <h2>🌍 Lista de Global Variables (Usados por los Checkpoints)</h2>
+  <table>
+    <tr>
+      <td><code>recMilliSeconds</code></td>
+      <td>
+        0 = (Defecto)
+      </td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+
+    <tr>
+      <td><code>recSeconds</code></td>
+      <td>
+        0 = (Defecto)
+      </td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+
+    <tr>
+      <td><code>recMinutes</code></td>
+      <td>
+        0 = (Defecto)
+      </td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+
+    <tr>
+      <td><code>recWaterState</code></td>
+      <td>
+        0 = (Defecto)
+      </td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+
+    <tr>
+      <td><code>recWaterLevel</code></td>
+      <td>
+        0 = (Defecto)
+      </td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+
+    <tr>
+      <td><code>recStage</code></td>
+      <td>
+        0 = (Defecto)
+      </td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+
+    <tr>
+      <td><code>recStageList</code></td>
+      <td>
+        0 = (Defecto)
+      </td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+
+    <tr>
+      <td><code>lampPostID</code></td>
+      <td>
+        0 = (Defecto)
+      </td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+  </table>
+    <h2>🌍 Lista de Global Variables (Otros Valores)</h2>
+  <table>
+    <tr>
+      <td><code>fadeColor</code></td>
+      <td>
+        0 = (Defecto)
+      </td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+
+    <tr>
+      <td><code>animalType1</code></td>
+      <td>
+        0 = (Defecto)
+      </td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+
+    <tr>
+      <td><code>animalType2</code></td>
+      <td>
+        0 = (Defecto)
+      </td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+
+    <tr>
+      <td><code>invincibilityType</code></td>
+      <td>
+        0 = Sonic 1 (Defecto)<br>
+        1 = Sonic 2
+      </td>
+      <td>Tipo de estrellas de invicibilidad (Cuando options.shieldType usa los escudos de Sonic 3 forzara las estrellas de invencibilidad de Sonic 2).</td>
+    </tr>
+
+    <tr>
+      <td><code>blueShieldType</code></td>
+      <td>
+        0 = Sonic 1 (Defecto)<br>
+        1 = Sonic 2
+      </td>
+      <td>Tipo de escudo azul (Este valor no se modifica manualmente ya que options.shieldType se encarga de escribir en el).</td>
+    </tr>
+
+    <tr>
+      <td><code>goggleType</code></td>
+      <td>
+        0 = (Defecto)
+      </td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+  </table>
+    <h2>🌍 Lista de Global Variables (specialStage.*)</h2>
+  <table>
+    <tr>
+      <td><code>specialStage.listPos</code></td>
+      <td>
+        0 = (Defecto)
+      </td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+
+    <tr>
+      <td><code>specialStage.emeralds</code></td>
+      <td>
+        0 = (Defecto)
+      </td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+
+    <tr>
+      <td><code>specialStage.nextZone</code></td>
+      <td>
+        0 = (Defecto)
+      </td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+  </table>
+    <h8>🌍 Lista de Global Variables (stage.*)</h8>
+  <table>
+    <tr>
+      <td><code>stage.waterState</code></td>
+      <td>
+        0 = (Defecto)
+      </td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+
+    <tr>
+      <td><code>stage.newWaterLevel</code></td>
+      <td>
+        0 = (Defecto)
+      </td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+
+    <tr>
+      <td><code>stage.deathBoundary</code></td>
+      <td>
+        0 = (Defecto)
+      </td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+
+    <tr>
+      <td><code>stage.player2Enabled</code></td>
+      <td>
+        0 = (Defecto)
+      </td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+
+    <tr>
+      <td><code>stage.musicFlag</code></td>
+      <td>
+        0 = Sin cambios (Defecto)<br>
+        1 = Aumentar Velocidad<br>
+        2 = Disminuir Velocidad
+      </td>
+      <td>Determina los eventos de la musica del juego</td>
+    </tr>
+  </table>
+    <h2>🌍 Lista de Global Variables (timeAttack.*)</h2>
+  <table>
+    <tr>
+      <td><code>timeAttack.zone</code></td>
+      <td>
+        -1 = (Defecto)
+      </td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+
+    <tr>
+      <td><code>timeAttack.act</code></td>
+      <td>
+        0 = (Defecto)
+      </td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+
+    <tr>
+      <td><code>timeAttack.result</code></td>
+      <td>
+        0 = (Defecto)
+      </td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+
+    <tr>
+      <td><code>timeAttack.menuSection</code></td>
+      <td>
+        0 = (Defecto)
+      </td>
+      <td><em>Pendiente por documentar.</em></td>
+    </tr>
+  </table>
+    <h2>🌍 Lista de Global Variables (Animation Variables)</h2>
+  <table>
+  </table>
+
+  <hr>
+  <p><em>MobiusCore - Comunidad de hacking retro basada en Sonic y SEGA.</em></p>
+  <div class="back">
+    <a href="../menu.html">← Volver al menú</a>
+  </div>
+</body>
+</html>
